@@ -212,9 +212,7 @@ public class AndroidBackup {
             // Set up the compression stage feeding into the encryption stage (if any)
             if (compressing) {
                 Deflater deflater = new Deflater(Deflater.BEST_COMPRESSION);
-                // requires Java 7
-                finalOutput = new DeflaterOutputStream(finalOutput, deflater,
-                        true);
+                finalOutput = new DeflaterOutputStream(finalOutput, deflater);
             }
 
             out = finalOutput;
