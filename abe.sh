@@ -1,8 +1,6 @@
 #!/bin/sh
 
-JAVA=/usr/local/jdk1.7.0_04/bin/java
-BC=./lib/bcprov-jdk15on-147.jar
-CP=:bin:$BC
+JAVA=$(which java)
+[ -n "${JAVA}" ] || JAVA=/usr/lib/jvm/default-java/bin/java
 
-"$JAVA" -cp $CP org.nick.abe.Main $*
-
+$JAVA -cp bin:./lib/bcprov.jar org.nick.abe.Main $*
